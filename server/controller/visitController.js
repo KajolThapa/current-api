@@ -6,9 +6,11 @@ const mongoose = require('mongoose');
 // const someURL ="http://example.com/index.html?code=string&key=12&id=false";
 
 const myURI = 'mongodb+srv://current:currentAPI@cluster0-9tmmt.mongodb.net/test?retryWrites=true&w=majority'
-const URI = process.env.PG_URI || myURI;
+// const URI = process.env.MONGODB_URL;
+const URI = process.env.URI || myURI;
 
-mongoose.connect(URI, {useNewUrlParser: true});
+
+mongoose.connect(URI);
 mongoose.connection.once('open', () => {
     console.log('connected to Database');
 })
