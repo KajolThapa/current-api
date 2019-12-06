@@ -51,9 +51,12 @@ const visitController = {
             const regexString = `(${searchQueries.join('|')})`.toLowerCase();
             console.log(regexString)
             Visit.find({userId: userId, name: new RegExp(regexString)})
-                .then(data => res.locals.topFive = data)
+                .then(data => {
+                    console.log(data)
+                    res.locals.topFive = data
+                    return next();
+                })
                 .catch(err => console.error(err))
-            return next();
         }
     
 }

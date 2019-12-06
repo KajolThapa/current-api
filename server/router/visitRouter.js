@@ -13,7 +13,9 @@ router.get('/:visitId', getLocationById, (req,res) => {
 })
 
 router.get('/', getTopFive, (req,res) => {
-    console.log('after trying to search top 5 locations');
+    console.log(res.locals)
+    console.log(res.locals.topFive)
+    // console.log('after trying to search top 5 locations');
     res.send(res.locals.topFive)
 })
 
