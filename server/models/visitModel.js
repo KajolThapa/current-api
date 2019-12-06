@@ -1,16 +1,6 @@
-
-
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const AutoIncrement = require('mongoose-sequence')(mongoose);
-
-//If you use different connections you must include it this way
-// const mongoose = require('mongoose')
-// const AutoIncrementFactory = require('mongoose-sequence');
- 
-// const connection = await mongoose.createConnection('mongodb://...');
- 
-// const AutoIncrement = AutoIncrementFactory(connection);
 
 const visitSchema = new Schema({
     userId: {type: String, required: true},

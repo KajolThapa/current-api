@@ -1,4 +1,6 @@
-1. This API must be available on a public endpoint you control
+#1. This API must be available on a public endpoint you control 
+**I hosted the api through Heroku**
+[Api](https://blooming-ravine-08103.herokuapp.com/visit)
 2. This API must expose the following two endpoints
     1. POST /visit
         1. Accepts POST requests with ‘application/json’ types
@@ -9,10 +11,13 @@
     2. GET /visit
         1. Can be queried with either of the following patterns:
             1. visitId
+              [Query api with a known visitId](https://blooming-ravine-08103.herokuapp.com/visit/17)
             2. both of the following two query params:
                 1. userId
-                2. searchString- A string which is attempted to be matched over the 5 most recent locations the user has visited.
-                    The matching should be fuzzy, and case insensitive
+                    2. searchString- A string which is attempted to be matched over the 5 most recent locations the user has visited. The matching should be fuzzy, and case insensitive
+              [Fuzzy Search by User Id](https://blooming-ravine-08103.herokuapp.com/visit?userId=abc&searchString="Poland Zealand Los")
+              [Another example of Fuzzy Search](https://blooming-ravine-08103.herokuapp.com/visit?userId=abc&searchString="new Zealand atlanta")
+                
         2. Returns an array of arrival objects that was submitted to the POST
 
 Delivery:
@@ -51,26 +56,3 @@ POST { userId: “user2”, name: “Starbucks” }
 Returns: { visitId: “some-visit-id-3” }
 
 GET /visit?userId=user2&searchString=APPLE
-
-// .aggregate([
-                //     {
-                //         $group: {
-                //             originalId: { $first: '$_id'},
-                //             _id: '$id',
-                //             userId: {$first: '$userId'},
-                //             name: {$first: '$name'},
-                //             created_at: {$first: 'created_at'},
-                //             visitId: {$visitId: '$visitId'}
-                //         }
-                //     },
-                //     {
-                //         $project: {
-                //             _id: '$originalId',
-                //             id: '$_id',
-                //             userId: '$userId',
-                //             name: '$name',
-                //             created_at: '$created_at',
-                //             visitId: '$visitId'
-                //         }
-                //     }
-                // ])
