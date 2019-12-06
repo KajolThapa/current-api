@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 
 // const someURL ="http://example.com/index.html?code=string&key=12&id=false";
 
-const myURI = 'mongodb+srv://current:currentAPI@cluster0-9tmmt.mongodb.net/test?retryWrites=true&w=majority'
+const myURI = 'mongodb://current:currentAPI@cluster0-ljtai.mongodb.net/test?retryWrites=true&w=majority'
 // const URI = process.env.MONGODB_URL;
 const URI = process.env.URI || myURI;
 
