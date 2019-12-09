@@ -5,14 +5,15 @@ router.post('/', addLocation, (req,res) => {
     res.send(res.locals.visitId);
 })
 
+router.get('/', (req,res) => {
+    res.send(`Hello World!`);
+
+})
 router.get('/:visitId', getLocationById, (req,res) => {
-    console.log(res.locals.visitData);
     res.send(res.locals.visitData);
 })
 
 router.get('/', getTopFiveRecords, (req,res) => {
-    console.log(res.locals)
-    console.log(res.locals.topFive)
     res.send(res.locals.topFive)
 })
 
